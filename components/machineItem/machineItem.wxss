@@ -1,0 +1,29 @@
+/* components/machineItem/machineItem.wxss */
+.section {
+  margin-bottom: 30rpx;
+}
+
+.header {
+  font-size: 25rpx;
+  font-weight: bold;
+  color: lightgray;
+}
+
+.machine-container {
+  width: 76vw;
+  padding: 6vw 7vw;
+  border-radius: 4px;
+  margin-top: 20rpx;
+  box-shadow: 0 0 4px 0px lightgray;
+  color: white;
+}
+
+.machine-subtitle {
+  display: block;
+  font-size: 25rpx;
+}
+
+.machine-title {
+  display: block;
+  font-size: 40rpx;
+}

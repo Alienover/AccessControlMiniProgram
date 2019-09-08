@@ -1,0 +1,7 @@
+<!--pages/index/index.wxml-->
+<form bindsubmit="handleSubmit">
+  <input type="number" name="mobile" placeholder="Phone Number"/>
+  <input type="password" name="password" placeholder="Password"/>
+  <input type="text" name="secret" placeholder="Secret Code"/>
+  <button form-type="submit">Connect</button>
+</form>

@@ -1,0 +1,20 @@
+/* pages/index/index.wxss */
+
+input {
+  border: 1rpx solid lightgray;
+  padding: 25rpx 40rpx;
+  margin: 20px 0;
+  font-size: 20rpx;
+}
+input.hover {
+  box-shadow: 0 0 4px 0 lightgray;
+}
+
+button {
+  font-size: 25rpx;
+  background-color: #5187EC;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+}

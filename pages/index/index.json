@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "MachineItem": "../../components/machineItem/machineItem"
+  },
+  "enablePullDownRefresh": true
 }
