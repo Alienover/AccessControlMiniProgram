@@ -76,7 +76,9 @@ function machineInfo(onSuccess) {
       success: function(res) {
         wx.hideLoading()
         if (utils.handleError(res)) {
-          const machines = res.data.data.list
+          const machines = res.data.data.list.sort(function(a, b) {
+            return a.buildingName > b.buildingName ? 1 : -1
+          })
           wx.setStorageSync(constants.MACHINE_KEY, machines)
           onSuccess(machines)
         } else { onSuccess(false) }

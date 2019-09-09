@@ -32,8 +32,22 @@ function handleError(res, message = 'Error') {
   }
 }
 
-function randomColor() {
-  return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).substr(-6)
+function randomColor(original = '') {
+  let colorCode = ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).substr(-6)
+  if (!!original) {
+    colorCode = (
+      (original.split('').reduce((prev, curr) => {
+        const a = (prev << 5) - prev + curr.charCodeAt(0)
+        return a & a
+      }, 0) *
+        0xffffff) <<
+      0
+    )
+      .toString(16)
+      .slice(-6)
+  }
+
+  return '#' + colorCode
 }
 
 module.exports = {

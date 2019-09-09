@@ -17,6 +17,9 @@
   box-shadow: 0 0 4px 0px lightgray;
   color: white;
 }
+.container-hover {
+  background-color: gray!important;
+}
 
 .machine-subtitle {
   display: block;

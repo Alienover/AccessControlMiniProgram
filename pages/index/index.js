@@ -117,14 +117,14 @@ function machineFilter(machines) {
           ...each,
           buildingName: each.buildingName.replace(/(F)/, '$1-'),
           style: {
-            backgroundColor: utils.randomColor()
+            backgroundColor: utils.randomColor(each.no)
           }
         })
       } else normal.push({
         ...each,
         buildingName: each.buildingName.replace(/(F)/, '$1-'),
         style: {
-          backgroundColor: utils.randomColor()
+          backgroundColor: utils.randomColor(each.no)
         }
       })
     })
