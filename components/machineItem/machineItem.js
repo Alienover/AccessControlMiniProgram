@@ -30,6 +30,7 @@ Component({
     handleTap: function(e) {
       const { terminalSerial } = e.currentTarget.dataset
 
+      wx.vibrateShort()
       api.unlock(terminalSerial)
     }
   }
