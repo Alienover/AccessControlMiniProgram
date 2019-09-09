@@ -2,6 +2,7 @@
 const app = getApp()
 const api = require('../../utils/api.js')
 const utils = require('../../utils/utils.js')
+const qrCodes = require('../../utils/qrcodes.js')
 const constants = require('../../utils/constants.js')
 
 Page({
@@ -13,6 +14,9 @@ Page({
     machines: {
       normal: [],
       front: []
+    },
+    fireDoor: {
+      ...qrCodes
     }
   },
   /**
@@ -115,16 +119,16 @@ function machineFilter(machines) {
       if (each.name.includes(constants.FRONT_MARK)) {
         front.push({
           ...each,
-          buildingName: each.buildingName.replace(/(F)/, '$1-'),
+          buildingName: each.buildingName.replace(/(F)/, '$1 - '),
           style: {
-            backgroundColor: utils.randomColor()
+            backgroundColor: utils.randomColor(each.no)
           }
         })
       } else normal.push({
         ...each,
-        buildingName: each.buildingName.replace(/(F)/, '$1-'),
+        buildingName: each.buildingName.replace(/(F)/, '$1 -' ),
         style: {
-          backgroundColor: utils.randomColor()
+          backgroundColor: utils.randomColor(each.no)
         }
       })
     })

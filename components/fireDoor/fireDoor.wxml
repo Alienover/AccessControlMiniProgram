@@ -1,0 +1,6 @@
+<!--components/fireDoor/fireDoor.wxml-->
+<view style="text-align: right;">
+  <button bindtap="handleTap">
+    <image class="icon" src="{{icon}}" />Fire Doors
+  </button>
+</view>

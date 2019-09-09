@@ -1,0 +1,9 @@
+<!--pages/codes/codes.wxml-->
+<view class="qrcode">
+  <image hidden="{{!toShow.value}}" src="{{toShow.value}}" />
+  <view hidden="{{!toShow.label}}">{{toShow.label}}</view>
+</view>
+
+<view wx:for="{{codes}}" wx:for-item="each" wx:for-index="idx" wx:key="{{each.label}}" bindtap="handleTap" data-index="{{idx}}" class="container {{activeIndex === idx ? 'active' : ''}}" style="background-color: {{each.backgroundColor}}">
+{{each.label}}
+</view>

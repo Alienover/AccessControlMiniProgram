@@ -1,0 +1,16 @@
+/* components/fireDoor/fireDoor.wxss */
+image.icon {
+  display: block;
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+  filter: grayscale(100%);
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  font-size: 25rpx;
+  color: gray;
+  font-weight: bold;
+}

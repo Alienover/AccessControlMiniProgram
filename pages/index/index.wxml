@@ -1,3 +1,4 @@
 <!--pages/index/index.wxml-->
+<FireDoor icon="{{fireDoor.QR_CODE_ICON}}"/>
 <MachineItem header="Tops:" machines="{{machines.front}}"/>
 <MachineItem machines="{{machines.normal}}"/>

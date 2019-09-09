@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "MachineItem": "../../components/machineItem/machineItem"
+    "MachineItem": "../../components/machineItem/machineItem",
+    "FireDoor": "../../components/fireDoor/fireDoor"
   },
   "enablePullDownRefresh": true
 }

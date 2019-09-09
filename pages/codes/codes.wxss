@@ -1,0 +1,23 @@
+/* pages/codes/codes.wxss */
+.container {
+  width: 76vw;
+  padding: 4vw 7vw;
+  border-radius: 4px;
+  margin-top: 20rpx;
+  box-shadow: 0 0 4px 0px lightgray;
+  color: white;
+}
+
+.active {
+  width: 74vw;
+  border-left: 2vw solid orange;
+}
+
+.qrcode {
+  text-align: center;
+  padding: 20rpx 0 ;
+}
+.qrcode > image {
+  width: 60vw;
+  height: 60vw;
+}

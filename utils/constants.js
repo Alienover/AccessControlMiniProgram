@@ -1,5 +1,6 @@
 const USER_KEY = 'user'
 const MACHINE_KEY = 'machines'
+const QRCODE_KEY = 'qrcode'
 
 const API_VERSION = "7.0.0"
 
@@ -16,6 +17,7 @@ const FRONT_MARK = '自动门'
 module.exports = {
   USER_KEY,
   MACHINE_KEY,
+  QRCODE_KEY,
   API_VERSION,
   UNLOCK_TYPE,
   SECRET,
