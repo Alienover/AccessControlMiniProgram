@@ -3,11 +3,14 @@ const utils = require('./utils.js')
 const constants = require('./constants.js')
 
 const PREFIX = 'https://mwsq.scities.cc'
+const FIRE_FOORS_PREFIX = 'http://qrc.uclbrt.com'
 
 const endpoints = {
   login: `${PREFIX}/mobileInterface/user/login`,
   machineInfo: `${PREFIX}/mobileInterface/terminal/machineInfo/unlockInfo`,
-  unlock: `${PREFIX}/mobileInterface/sip/unlock/onlineUnLock`
+  unlock: `${PREFIX}/mobileInterface/sip/unlock/onlineUnLock`,
+  fireDoors: `${FIRE_FOORS_PREFIX}/api/client/Home/getUsualKeyList`,
+  fireKey: `${FIRE_FOORS_PREFIX}/api/client/Home/getKeyInfo`
 }
 
 const defaultHeaders = {
@@ -122,8 +125,75 @@ function unlock(terminalSerial) {
   })
 }
 
+function fireDoors(onSuccess) {
+  const body = {
+    mid: constants.MID
+  }
+
+  wx.request({
+    url: endpoints.fireDoors,
+    data: body,
+    header: {
+      'cookie': constants.COOKIE,
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    method: 'POST',
+    dataType: 'json',
+    responseType: 'text',
+    success: function(res) {
+      wx.hideLoading()
+      let list = false
+      if (res.data.error === 0) {
+        list = res.data.data.list.map(function (each) {
+          const [_, room] = each.link.match(/room=(\d+)&/) || []
+          return {
+            ...each,
+            room
+          }
+        })
+        wx.setStorageSync(constants.FIRE_DOOR_KEY, list)
+      }
+      onSuccess(list)
+    },
+    fail: function(res) {},
+    complete: function(res) {},
+  })
+}
+
+function fireKey(room) {
+  const body = {
+    mid: constants.MID,
+    room: room
+  }
+  wx.showLoading({
+    title: 'Loading',
+  })
+
+  wx.request({
+    url: endpoints.fireKey,
+    data: body,
+    header: {
+      'cookie': constants.COOKIE,
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    method: 'POST',
+    dataType: 'json',
+    responseType: 'text',
+    success: function(res) {
+      console.log(res)
+    },
+    fail: function(res) {},
+    complete: function(res) {
+      wx.hideLoading()
+    },
+  })
+}
+
+
 module.exports = {
   login,
   machineInfo,
-  unlock
+  unlock,
+  fireDoors,
+  fireKey
 }

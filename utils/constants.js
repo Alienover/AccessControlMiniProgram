@@ -1,5 +1,12 @@
 const USER_KEY = 'user'
 const MACHINE_KEY = 'machines'
+const FIRE_DOOR_KEY = 'fire_door'
+
+const MC_TOKEN = 'NvZFThe57zJelDbzBfpSysylMYBdoPktTKxjvakYGc1wat42%2FmY%2B7hvP0lxjuOk0chVafMuxYx05KbiFAmM0xgFyXoy4g%2FHa79l9d7pu8mtznPnSIrO8g7UYMiDpmxfvmWXxtbCr9NhlfTXe%2FulkasFPMCG8bYlD24PLdZr1%2Be0ONHfI%2FTs1oUvd%2B3b5F5Qil2%2FX2oqJksDg4cAi7889BMwTjv6wMLUqwi71hwn1atS4dM26wvfdQ63UiL7A%2B71KaIp9w70L1HkHPyUGz5DK6KXC8DgoGlF%2FvXxJlBHI65XtqFwQt8FY28fdkLXLYCy8OkEeuEmxZPrZ3DVBGLbrpw%3D%3D'
+
+const COOKIE = "mc_token=V2E%2FGqRoJKtm9YeAewtKJ%2FZRxzFbL2oQvFvfKpHuIo4wp5ethIrcY4QHGm1t8DCRm%2ByFyNgqs4XiVWoCU20OUTGKqG1BH45wY9kArADsopg83nE2cdYnxLY%2FLFGb1cYGe8UKQ%2F%2BDCe5IEnfAretGwVDgazfnrnRtXYn8pbjIuB6%2BNoy8CIm9Zf4cxCwKY41eOqU3RhncruIoTl0%2BWPIBghbKNBJfqh9RwgHDen6NR73TPDteiDzFPkbRi03KJLI%2BaRy7jtaTUfMKSBWvTgeObt5wXjkoGMDv9HZjw6BE3S9Q5kXF%2BkRN27EqiuO0Q8o3gocVpT8H6PY04A0nQbO%2BjA%3D%3D; micro_think_var=zh-cn"
+
+const MID = "24"
 
 const API_VERSION = "7.0.0"
 
@@ -16,6 +23,10 @@ const FRONT_MARK = '自动门'
 module.exports = {
   USER_KEY,
   MACHINE_KEY,
+  FIRE_DOOR_KEY,
+  MC_TOKEN,
+  COOKIE,
+  MID,
   API_VERSION,
   UNLOCK_TYPE,
   SECRET,

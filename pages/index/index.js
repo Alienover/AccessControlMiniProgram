@@ -1,6 +1,7 @@
 // pages/index/index.js
 const app = getApp()
 const api = require('../../utils/api.js')
+const qrcode = require('../../utils/qrcode.js')
 const utils = require('../../utils/utils.js')
 const constants = require('../../utils/constants.js')
 

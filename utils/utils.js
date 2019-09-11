@@ -16,6 +16,14 @@ function isMachinesExist() {
   } else return false
 }
 
+function isFireDoorsExist() {
+  const fireDoors = wx.getStorageSync(constants.FIRE_DOOR_KEY)
+
+  if (!!fireDoors) {
+    return fireDoors
+  } else return false
+}
+
 function handleError(res, message = 'Error') {
   try {
     if (res.data.result === '1') {
@@ -53,6 +61,7 @@ function randomColor(original = '') {
 module.exports = {
   isLogin,
   isMachinesExist,
+  isFireDoorsExist,
   handleError,
   randomColor
 }
