@@ -1,6 +1,7 @@
 // pages/codes/codes.js
+const api = require('../../utils/api.js')
 const utils = require('../../utils/utils.js')
-const qrCodes = require('../../utils/qrcodes.js')
+const qrCode = require('../../utils/qrcode.js')
 const constants = require('../../utils/constants.js')
 
 Page({
@@ -9,29 +10,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    codes: [
-      { label: '1F Courtyard', value: qrCodes.FIRE_DOOR_1F },
-      { label: '3F East', value: qrCodes.FIRE_DOOR_3F },
-      { label: '4F East', value: qrCodes.FIRE_DOOR_4F }
-    ],
+    doors: [],
     activeIndex: undefined,
-    toShow: {},
+    toShow: '',
   },
 
   handleTap: function(e) {
+    const _this = this
     const { index } = e.currentTarget.dataset
-    const qrcode = this.data.codes[index]
-    this.setData({
-      activeIndex: index,
-      toShow: qrcode
-    })
-
-    wx.setStorage({
-      key: constants.QRCODE_KEY,
-      data: {
+    const door = this.data.doors[index]
+    
+    api.fireKey(door.room, function(res) {
+      _this.setData({
         activeIndex: index,
-        toShow: qrcode
-      },
+        toShow: qrCode(utils.fireKeyDecoder(res))
+      })
     })
   },
 
@@ -39,24 +32,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const qrcode = wx.getStorageSync(constants.QRCODE_KEY) || {}
-    
-    const codes = [
-      { label: '1F Courtyard', value: qrCodes.FIRE_DOOR_1F },
-      { label: '3F East', value: qrCodes.FIRE_DOOR_3F },
-      { label: '4F East', value: qrCodes.FIRE_DOOR_4F }
-    ]
+    const _this = this
+    const fireDoors = utils.isFireDoorsExist()
 
-    this.setData({
-      ...qrcode,
-      codes: codes.map(function(each) {
-        const color = utils.randomColor(each.label)
-        return {
-          ...each,
-          backgroundColor: color
+    if (fireDoors) {
+      _this.setData({
+        doors: fireDoors
+      })
+    } else {
+      api.fireDoors(function(res) {
+        if (res) {
+          _this.setData({
+            doors: res
+          })
         }
       })
-    })
+    }
   },
 
   /**
@@ -91,7 +82,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    const _this = this
+    api.fireDoors(function (res) {
+      if (res) {
+        _this.setData({
+          doors: res
+        })
+      }
+    })
   },
 
   /**

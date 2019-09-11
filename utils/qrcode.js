@@ -2260,8 +2260,8 @@ var qrcode = function () {
       qr.addData(text)
       qr.make()
 
-      return qr.createImgTag()
-    };
+      return qr.createDataURL()
+    }
   }
 }(function () {
   return qrcode;

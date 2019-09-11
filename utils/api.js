@@ -129,6 +129,9 @@ function fireDoors(onSuccess) {
   const body = {
     mid: constants.MID
   }
+  wx.showLoading({
+    title: 'Loading...',
+  })
 
   wx.request({
     url: endpoints.fireDoors,
@@ -156,11 +159,13 @@ function fireDoors(onSuccess) {
       onSuccess(list)
     },
     fail: function(res) {},
-    complete: function(res) {},
+    complete: function(res) {
+      wx.hideLoading()
+    },
   })
 }
 
-function fireKey(room) {
+function fireKey(room, onSuccess) {
   const body = {
     mid: constants.MID,
     room: room
@@ -180,7 +185,10 @@ function fireKey(room) {
     dataType: 'json',
     responseType: 'text',
     success: function(res) {
-      console.log(res)
+      let qrcodeData = false
+      if(res.data.error === 0) {
+        onSuccess(res.data.data.card)
+      } else { onSuccess(false) }
     },
     fail: function(res) {},
     complete: function(res) {

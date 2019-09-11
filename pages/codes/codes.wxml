@@ -1,9 +1,9 @@
 <!--pages/codes/codes.wxml-->
 <view class="qrcode">
-  <image hidden="{{!toShow.value}}" src="{{toShow.value}}" />
-  <view hidden="{{!toShow.label}}">{{toShow.label}}</view>
+  <image hidden="{{activeIndex === undefined}}" src="{{toShow}}" data-index="{{activeIndex}}" bindtap="handleTap"/>
 </view>
 
-<view wx:for="{{codes}}" wx:for-item="each" wx:for-index="idx" wx:key="{{each.label}}" bindtap="handleTap" data-index="{{idx}}" class="container {{activeIndex === idx ? 'active' : ''}}" style="background-color: {{each.backgroundColor}}">
-{{each.label}}
+<view wx:for="{{doors}}" wx:for-item="each" wx:for-index="idx" wx:key="{{each.label}}" bindtap="handleTap" data-index="{{idx}}" class="container {{activeIndex === idx ? 'active' : ''}}">
+  <text class="door-subtitle">{{each.floorName}}</text>
+  <text class="door-title">{{each.roomName}}</text>
 </view>

@@ -4,13 +4,23 @@
   padding: 4vw 7vw;
   border-radius: 4px;
   margin-top: 20rpx;
-  box-shadow: 0 0 4px 0px lightgray;
-  color: white;
+  box-shadow: 0 0 0 1px gray;
+  color: blue;
+}
+
+.door-subtitle {
+  display: block;
+  font-size: 25rpx;
+}
+
+.door-title {
+  display: block;
+  font-size: 35rpx;
 }
 
 .active {
-  width: 74vw;
-  border-left: 2vw solid orange;
+  background-color: blue;
+  color: white;
 }
 
 .qrcode {

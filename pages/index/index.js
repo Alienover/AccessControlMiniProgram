@@ -3,7 +3,6 @@ const app = getApp()
 const api = require('../../utils/api.js')
 const qrcode = require('../../utils/qrcode.js')
 const utils = require('../../utils/utils.js')
-const qrCodes = require('../../utils/qrcodes.js')
 const constants = require('../../utils/constants.js')
 
 Page({
@@ -16,9 +15,7 @@ Page({
       normal: [],
       front: []
     },
-    fireDoor: {
-      ...qrCodes
-    }
+    fireDoorIcon: constants.QR_CODE_ICON
   },
   /**
    * 生命周期函数--监听页面加载

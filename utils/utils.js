@@ -58,11 +58,17 @@ function randomColor(original = '') {
   return '#' + colorCode
 }
 
+function fireKeyDecoder(key) {
+  for (var t = "", a = 0; a < key.length / 2; a++)
+    t += String.fromCharCode(parseInt(key.substr(2 * a, 2), 16));
+  return t
+}
+
 module.exports = {
   isLogin,
   isMachinesExist,
   isFireDoorsExist,
   handleError,
   randomColor,
-  colorReverse
+  fireKeyDecoder
 }
