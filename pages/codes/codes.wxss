@@ -9,6 +9,7 @@
 }
 
 .door-subtitle {
+  color: gray;
   display: block;
   font-size: 25rpx;
 }
@@ -18,7 +19,8 @@
   font-size: 35rpx;
 }
 
-.active {
+.active,
+.active .door-subtitle {
   background-color: blue;
   color: white;
 }
@@ -28,6 +30,7 @@
   padding: 20rpx 0 ;
 }
 .qrcode > image {
-  width: 60vw;
-  height: 60vw;
+  width: 56vw;
+  height: 56vw;
+  box-shadow: 0 0 10rpx 0 lightgray;
 }

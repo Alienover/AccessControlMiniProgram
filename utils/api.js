@@ -151,6 +151,7 @@ function fireDoors(onSuccess) {
           const [_, room] = each.link.match(/room=(\d+)&/) || []
           return {
             ...each,
+            roomName: each.roomName.replace(/(F)/, '$1 - '),
             room
           }
         }).sort(function(a, b) {
