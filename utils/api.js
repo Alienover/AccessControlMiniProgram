@@ -153,6 +153,8 @@ function fireDoors(onSuccess) {
             ...each,
             room
           }
+        }).sort(function(a, b) {
+          return a.roomName < b.roomName ? -1 : 1
         })
         wx.setStorageSync(constants.FIRE_DOOR_KEY, list)
       }
