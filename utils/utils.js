@@ -16,6 +16,14 @@ function isMachinesExist() {
   } else return false
 }
 
+function isFireDoorsExist() {
+  const fireDoors = wx.getStorageSync(constants.FIRE_DOOR_KEY)
+
+  if (!!fireDoors) {
+    return fireDoors
+  } else return false
+}
+
 function handleError(res, message = 'Error') {
   try {
     if (res.data.result === '1') {
@@ -50,15 +58,10 @@ function randomColor(original = '') {
   return '#' + colorCode
 }
 
-function colorReverse(oldColor) {
-  const colorValue = "0x" + oldColor.replace(/#/g, "");
-  const str = "000000" + (0xFFFFFF - colorValue).toString(16);
-  return str.substring(str.length - 6, str.length);
-}
-
 module.exports = {
   isLogin,
   isMachinesExist,
+  isFireDoorsExist,
   handleError,
   randomColor,
   colorReverse
