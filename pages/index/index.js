@@ -21,33 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const _this = this
-    const user = utils.isLogin()
-    const machines = utils.isMachinesExist()
 
-    if (!user) {
-      wx.navigateTo({
-        url: '../login/login',
-      })
-    }
-
-    if(machines) {
-      _this.setData({
-        machines: {
-          ...machineFilter(machines)
-        }
-      })
-    } else {
-      api.machineInfo(function (res) {
-        if(res) {
-          _this.setData({
-            machines: {
-              ...machineFilter(res)
-            }
-          })
-        }
-      })
-    }
   },
 
   /**
@@ -61,7 +35,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const _this = this
+    const user = utils.isLogin()
+    const machines = utils.isMachinesExist()
 
+    if (!user) {
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }
+
+    if (machines) {
+      _this.setData({
+        machines: {
+          ...machineFilter(machines)
+        }
+      })
+    } else {
+      api.machineInfo(function (res) {
+        if (res) {
+          _this.setData({
+            machines: {
+              ...machineFilter(res)
+            }
+          })
+        }
+      })
+    }
   },
 
   /**
@@ -124,7 +124,7 @@ function machineFilter(machines) {
         })
       } else normal.push({
         ...each,
-        buildingName: each.buildingName.replace(/(F)/, '$1 -' ),
+        buildingName: each.buildingName.replace(/(F)/, '$1 - '),
         style: {
           backgroundColor: utils.randomColor(each.no)
         }
