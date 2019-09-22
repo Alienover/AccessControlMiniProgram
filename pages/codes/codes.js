@@ -21,6 +21,7 @@ Page({
     const door = this.data.doors[index]
     
     api.fireKey(door.room, function(res) {
+      wx.vibrateShort()
       _this.setData({
         activeIndex: index,
         toShow: qrCode(utils.fireKeyDecoder(res))
