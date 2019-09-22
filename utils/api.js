@@ -79,10 +79,10 @@ function machineInfo(onSuccess) {
       success: function(res) {
         wx.hideLoading()
         if (utils.handleError(res)) {
-          const machines = res.data.data.list.sort(function(a, b) {
+          const machines = res.data.data.list
+          wx.setStorageSync(constants.MACHINE_KEY, machines.sort(function (a, b) {
             return a.buildingName > b.buildingName ? 1 : -1
-          })
-          wx.setStorageSync(constants.MACHINE_KEY, machines)
+          }))
           onSuccess(machines)
         } else { onSuccess(false) }
       },
@@ -91,10 +91,10 @@ function machineInfo(onSuccess) {
 }
 
 function unlock(terminalSerial) {
-  const { userId } = app.globalData.user
+  const user = utils.isLogin()
   const body = {
-    userId,
     terminalSerial,
+    userId: user.userId,
     apiVersion: utils.API_VERSION,
     unlockType: utils.UNLOCK_TYPE,
   }
