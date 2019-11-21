@@ -2,7 +2,7 @@ const app = getApp()
 const utils = require('./utils.js')
 const constants = require('./constants.js')
 
-const PREFIX = 'https://mwsq.scities.cc'
+const PREFIX = 'http://mwsq.scities.cc:8080'
 const FIRE_FOORS_PREFIX = 'http://qrc.uclbrt.com'
 
 const endpoints = {

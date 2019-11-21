@@ -6,7 +6,7 @@ App({
 
     if (user) {
       this.globalData.user = user
-      wx.navigateTo({
+      wx.redirectTo({
         url: 'pages/index/index',
       })
     }

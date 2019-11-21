@@ -33,7 +33,7 @@ Page({
         const machines = utils.isMachinesExist()
 
         if (!user) {
-            wx.navigateTo({
+            wx.redirectTo({
                 url: '../login/login'
             })
         }
