@@ -6,6 +6,7 @@
 
 module.exports = {
   /* Your site config here */
+  pathPrefix: "/office-control",
   plugins: [
     {
       resolve: "gatsby-plugin-manifest",
