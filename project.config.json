@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.8.2",
 	"appid": "wx81e42927f5676117",
-	"projectname": "AccessControl",
+	"projectname": "office-control",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

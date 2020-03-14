@@ -32,5 +32,5 @@ module.exports = {
   SECRET,
   LOGIN_TYPE,
   CODE,
-  FRONT_MARK
+  FRONT_MARK,
 }

@@ -2,7 +2,7 @@ const app = getApp()
 const utils = require('./utils.js')
 const constants = require('./constants.js')
 
-const PREFIX = 'http://mwsq.scities.cc:8080'
+const PREFIX = 'https://mwsq.scities.cc'
 const FIRE_FOORS_PREFIX = 'http://qrc.uclbrt.com'
 
 const endpoints = {
@@ -24,6 +24,7 @@ function login(mobile, password, onSuccess) {
     loginType: constants.LOGIN_TYPE,
     code: constants.CODE
   }
+
   wx.showLoading({
     title: 'Connecting ...',
     mask: true
@@ -32,8 +33,8 @@ function login(mobile, password, onSuccess) {
   wx.request({
     url: endpoints.login,
     data: body,
-    header: {},
     method: 'POST',
+    header: {},
     dataType: 'json',
     responseType: 'text',
     complete: function() {
@@ -68,8 +69,8 @@ function machineInfo(onSuccess) {
     wx.request({
       url: endpoints.machineInfo,
       data: body,
-      header: {},
       method: 'POST',
+      header: {},
       dataType: 'json',
       responseType: 'text',
       complete: function() {
@@ -188,7 +189,6 @@ function fireKey(room) {
     },
   })
 }
-
 
 module.exports = {
   login,
