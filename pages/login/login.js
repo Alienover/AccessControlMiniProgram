@@ -1,5 +1,4 @@
 // pages/index/index.js
-const utils = require('../../utils/utils.js')
 const constants = require('../../utils/constants.js')
 const api = require('../../utils/api.js')
 const app = getApp()

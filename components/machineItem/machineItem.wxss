@@ -14,7 +14,6 @@
   padding: 6vw 7vw;
   border-radius: 4px;
   margin-top: 20rpx;
-  box-shadow: 0 0 4px 0px lightgray;
   color: white;
 }
 .container-hover {
