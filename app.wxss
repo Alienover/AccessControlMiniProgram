@@ -3,3 +3,9 @@ page {
   width: 90vw;
   padding: 5vw;
 }
+
+@media (prefers-color-scheme: dark) {
+  page {
+    background: #191919;
+  }
+}

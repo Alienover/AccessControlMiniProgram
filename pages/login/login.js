@@ -1,5 +1,4 @@
 // pages/index/index.js
-const constants = require('../../utils/constants.js')
 const api = require('../../utils/api.js')
 const app = getApp()
 
@@ -7,15 +6,13 @@ Page({
   handleSubmit: (e) => {
     const formData = e.detail.value
 
-    if (formData.secret === constants.SECRET) {
-      api.login(formData.mobile, formData.password, function(res) {
-        if (res) {
-          wx.redirectTo({
-            url: '../index/index',
-          })
-        }
-      })
-    }
+    api.login(formData.mobile, formData.password, function(res) {
+      if (res) {
+        wx.redirectTo({
+          url: '/pages/index/index',
+        })
+      }
+    })
   },
   /**
    * 页面的初始数据
@@ -32,7 +29,7 @@ Page({
     if (!!user) {
       app.globalData.user = user
       wx.redirectTo({
-        url: '../index/index',
+        url: '/pages/index/index',
       })
     }
   },

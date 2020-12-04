@@ -1,5 +1,5 @@
 <!--components/machineItem/machineItem.wxml-->
-<view class="section">
+<view class="section" wx:if="{{ machines.length > 0 }}">
   <text class="header">{{header}}</text>
   <view class="machine-container" wx:for="{{machines}}" wx:for-item="machine" wx:key="no" style="background-color: {{machine.style.backgroundColor}}" bindtap="handleTap" data-terminal-serial="{{machine.no}}" hover-class="container-hover">
     <text class="machine-subtitle">{{machine.smallCommunityName}}</text>

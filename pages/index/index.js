@@ -34,7 +34,7 @@ Page({
 
         if (!user) {
             wx.redirectTo({
-                url: '../login/login'
+                url: '/pages/login/login'
             })
         }
 
