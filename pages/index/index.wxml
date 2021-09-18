@@ -1,3 +1,0 @@
-<!--pages/index/index.wxml-->
-<MachineItem header="Tops:" machines="{{machines.front}}"/>
-<MachineItem machines="{{machines.normal}}"/>
